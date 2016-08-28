@@ -40,6 +40,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
 
   gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'capybara'
 end
 
 group :development do
@@ -52,7 +54,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
