@@ -1,0 +1,18 @@
+<h1>Artists</h1>
+
+<p>
+  Sort by:
+  <%= sort_link "created_at", "New"  %>
+  <%= sort_link "name" %>
+</p>
+
+<table>
+  <tbody>
+    <% @artists.each do |artist| %>
+      <tr>
+        <td><%= image_tag artist.image, width: '200' %></td>
+        <td><%= link_to artist.name, artist %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
