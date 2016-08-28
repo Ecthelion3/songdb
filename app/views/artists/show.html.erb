@@ -10,4 +10,9 @@
   </tbody>
 </table>
 
+<%= form_for(Song.new, remote: true) do |f| %>
+  <%= f.text_field :name, placeholder: "New a song...", rows: "8" %>
+  <%= f.submit "Add" %>
+<% end %>
+
 <p><%= link_to "Back", artists_path %></p>
