@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-coldplay = Artist.create( { name: 'Coldplay' } )
-adele = Artist.create( { name: 'Adele' } )
-ed_sheeran = Artist.create( { name: 'Ed Sheeran' } )
+coldplay = Artist.create( { name: 'Coldplay', image: open('https://www.coldplaying.com/wp-content/uploads/2015/11/dgsdfsg.jpg') } )
+adele = Artist.create( { name: 'Adele', image: open('http://www.billboard.com/files/styles/article_main_image/public/media/Adele-2015-close-up-XL_Columbia-billboard-650.jpg') } )
+ed_sheeran = Artist.create( { name: 'Ed Sheeran', image: open('http://blogs-images.forbes.com/zackomalleygreenburg/files/2015/01/Sheeran-e1420485651331.jpg') } )
 
 Song.create([
   { name: 'Yellow', artist: coldplay },
