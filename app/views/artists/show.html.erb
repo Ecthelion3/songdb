@@ -1,4 +1,13 @@
-<p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
-</p>
+<h1><%= @artist.name %></h1>
+
+<table>
+  <tbody>
+    <% @artist.songs.each do |song| %>
+      <tr>
+        <td><%= song.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p><%= link_to "Back", artists_path %></p>
