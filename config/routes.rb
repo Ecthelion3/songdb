@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   resources :artists
   resources :songs
+  
+  delete 'songs' => "songs#destroy_all"
 end

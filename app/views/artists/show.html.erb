@@ -1,18 +1,25 @@
 <h1><%= @artist.name %></h1>
 
-<table>
-  <tbody>
-    <% @artist.songs.each do |song| %>
-      <tr>
-        <td><%= song.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul>
+  <% @artist.songs.each_with_index do |song, i| %>
+    <li>
+      <%= song.name %>
+      <%= link_to 'Delete', song, method: :delete, remote: true, class: "delete" %>
+    </li>
+  <% end %>
+</ul>
 
-<%= form_for(Song.new, remote: true) do |f| %>
-  <%= f.text_field :name, placeholder: "New a song...", rows: "8" %>
-  <%= f.submit "Add" %>
+<%= form_for(@song, url: songs_path, html: { method: :post }, remote: true) do |f| %>
+  <%= f.text_field :name, placeholder: "Add a song...", id: "new_song" %>
+  <%= f.hidden_field :artist_id, value: @artist.id %>
+
+  <% if @song.errors.any? %>
+    <% @song.errors.full_messages.each do |message| %>
+      <small class="error"><%= message %></small>
+    <% end %>
+  <% end %>
 <% end %>
+
+<p><%= link_to 'Delete all', songs_path(id: @artist.id), method: :delete, remote: true, class: "deleteall" %></p>
 
 <p><%= link_to "Back", artists_path %></p>
